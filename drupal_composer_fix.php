@@ -19,7 +19,7 @@ if (isset($json["replace"]["drupal/core"])) {
     echo "\e[92mcomposer.json fixed successfully.\e[0m\n";
 } else {
     if (!isset($json["require"]["drupal/core"])) ffail("drupal/core neither in replace nor require section. Is this really a Drupal installation?");
-    echo "\e[92mcomposer.json seems to be fixed already.\e[0m\n";
+    echo "\e[94mcomposer.json seems to be fixed already.\e[0m\n";
 }
 
 $json=json_decode(file_get_contents("core/composer.json"),true);
@@ -35,7 +35,7 @@ if (isset($json["replace"])) {
 
     echo "\e[92mcore/composer.json fixed successfully.\e[0m\n";
 } else {
-    echo "\e[92mcore/composer.json seems to be fixed already.\e[0m\n";
+    echo "\e[94mcore/composer.json seems to be fixed already.\e[0m\n";
 }
 
 echo "\n";
