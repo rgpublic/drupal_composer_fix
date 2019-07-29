@@ -14,7 +14,7 @@ if (isset($json["replace"]["drupal/core"])) {
     $json["require"]["drupal/core"]=$json["replace"]["drupal/core"];
     unset($json["replace"]["drupal/core"]);
     if (!$json["replace"]) unset($json["replace"]);
-    file_put_contents("composer.json",json_encode($json,JSON_PRETTY_PRINT));
+    file_put_contents("composer.json",json_encode($json,JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ));
 
     echo "\e[92mcomposer.json fixed successfully.\e[0m\n";
 } else {
@@ -31,7 +31,7 @@ if (isset($json["replace"])) {
     } unset($item);
     $json["require"]=array_merge($json["require"],$json["replace"]);
     unset($json["replace"]);
-    file_put_contents("core/composer.json",json_encode($json,JSON_PRETTY_PRINT));
+    file_put_contents("core/composer.json",json_encode($json,JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ));
 
     echo "\e[92mcore/composer.json fixed successfully.\e[0m\n";
 } else {
